@@ -1,31 +1,26 @@
-# Designing a Part in build123d
-# https://build123d.readthedocs.io/en/latest/tutorial_design.html#designing-a-part-in-build123d
+# Designing a house with build123d.
+
 from build123d import *
 from ocp_vscode import show_all
 
 
-# units = { 
-#   "MM": 1,
-#   "CM": 10 * MM,
-#   "M": 1000 * MM,
-#   "IN": 25.4 * MM,
-#   "FT": 12 * IN,
-#   "THOU": IN / 1000
-# }
+unit = {}
+unit["MM"] = 1
+unit["CM"] = 10 * unit["MM"]
+unit["M"] = 1000 * unit["MM"]
+unit["IN"] = 25.4 * unit["MM"]
+unit["FT"] = 12 * unit["MM"]
+unit["THOU"] = unit["MM"] / 1000
 
-MM = 1
-CM = 10 * MM
-M = 1000 * MM
-IN = 25.4 * MM
-FT = 12 * IN
-THOU = IN / 1000
+
+scale = 1
 
 
 brick_dimenstion = {
-    "width": 9.625 * IN,
-    "length": 15.125 * IN,
-    "height": 7.625 * IN,
-    "joint": 0.5 * IN
+    "width": 9.625 * unit["IN"],
+    "length": 15.125 * unit["IN"],
+    "height": 7.625 * unit["IN"],
+    "joint": 0.5 * unit["IN"]
 }
 
 
@@ -33,16 +28,16 @@ foundation_wall = {
   #"wall": inches,
   "origin_x": 0.0,
   "origin_y": 0.0,
-  "east": 188.000 * IN,
-  "east_north": 182.500 * IN,
-  "east_south": 65.000 * IN,
-  "north_east": 490.250 * IN,
-  "north_west": 65.000 * IN,
-  "south": 311.250 * IN,
-  "south_east": 50.250 * IN,
-  "south_west": 192.250 * IN,
-  "west_north": 117.000 * IN,
-  "west_south": 312.500 * IN,
+  "east": 188.000 * unit["IN"],
+  "east_north": 182.500 * unit["IN"],
+  "east_south": 65.000 * unit["IN"],
+  "north_east": 490.250 * unit["IN"],
+  "north_west": 65.000 * unit["IN"],
+  "south": 311.250 * unit["IN"],
+  "south_east": 50.250 * unit["IN"],
+  "south_west": 192.250 * unit["IN"],
+  "west_north": 117.000 * unit["IN"],
+  "west_south": 312.500 * unit["IN"],
   "height": brick_dimenstion["height"] + brick_dimenstion["joint"] * 11
 }
 

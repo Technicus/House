@@ -10,18 +10,6 @@
   "west_north": 117.000,
   "west_south": 312.500
 
-foundation_corners = [
-  (0.0, 0.0),
-  (.0, ),
-  (.0, ),
-  (.0, ),
-  (.0, ),
-  (.0, ),
-  (.0, ),
-  (.0, ),
-  (.0, ),
-  (.0, ),
-]
 
 brick_dimenstion = {
     "width": 9.625,
@@ -29,7 +17,6 @@ brick_dimenstion = {
     "height": 7.0625,
     "joint": 0.5
 }
-
 
 
 foundation_wall = {

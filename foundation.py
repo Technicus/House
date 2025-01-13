@@ -74,25 +74,35 @@ foundation_corners = [
   (foundation_wall["origin_x"],foundation_wall["origin_y"])
 ]
 
-  
-with BuildPart(Plane.XY.offset(foundation_wall["offset_z"])) as foundation:
+# Create basement_perimeter_walls as a part.
+with BuildPart(Plane.XY.offset(foundation_wall["offset_z"])) as basement_perimeter_walls:
+  # Create a sketch with z offset height of walls to contain drawing of wall outline.
   with BuildSketch(Plane.XY.offset(foundation_wall["offset_z"])) as foundation_sketch:
-    # with BuildSketch(Plane.XY.offset(foundation_wall["height"])) as foundation_sketch:
+    # Start a line drawing for the outside perimeter of the foundation walls.
+    # with BuildLine(Plane.XY.offset(foundation_wall["offset_z"])) as foundation_line:
     with BuildLine(Plane.XY.offset(foundation_wall["offset_z"])) as foundation_line:
-    # Create a perimeter of the foundation.
+      # Create a perimeter of the foundation with a polyline defined by foundation_corners.
       foundation_perimeter = Polyline(foundation_corners)
-    # Subtract an offset to create the block walls
-      foundation_wall_outline = offset(
+    # Turn foundation_line into a face.
+    make_face()
+    # Start a line drawing for the inside perimeter of the foundation walls.
+    # with BuildLine(Plane.XY.offset(foundation_wall["offset_z"])) as foundation_line:
+    with BuildLine(Plane.XY.offset(foundation_wall["offset_z"])) as foundation_line_inset:
+      # Create the inside perimeter of the foundation with an offset from the outside perimeter.
+      foundation_perimeter_inset = offset(
         foundation_perimeter,
         -brick_dimenstion["width"],
-        kind=Kind.INTERSECTION,
-        mode=Mode.SUBTRACT,
-        )
-    make_face()
-  # extrude(to_extrude=foundation, amount=foundation_wall["height"])
+        kind=Kind.INTERSECTION)
+    # Subtract an offset to create the inner perimeter.
+    make_face(mode=Mode.SUBTRACT)
+    # make_face()
+  # extrude(to_extrude=basement_perimeter_walls, amount=foundation_wall["height"])
   extrude(amount=foundation_wall["height"])
-
+  
 show_object(foundation_line)
-show_object(foundation_wall_outline)
-show_object(foundation)
-#show_all()
+show_object(foundation_line_inset)
+show_object(basement_perimeter_walls)
+
+# show_object(basement_perimeter_walls)
+# show_object(foundation_sketch)
+# show_all()

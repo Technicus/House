@@ -1,5 +1,5 @@
 Hey there, I am trying to design with build123d and CadQuery again.
-It seems like I attempt to learn it every spring.
+It seems like I attempt to learn it every year from the middle of Winter to Spring.
 I figure some things out, then Summer comes and I start doing other things.
 A year later I come back to it, and everything is differnt, I remember some of what I learned last time, but I mostly forget it all.
 So I am learning it all over again.

@@ -26,7 +26,7 @@ brick_dimenstion = {
 }
 
 
-# Define length of perimeter walls, initial origin, and offset.
+# Define length of foundation segments around perimeter, initial origin, and offset.
 foundation_wall = {}
 # foundation_wall["wall"] = length * units * scale
 foundation_wall["east"] = 188.000 * unit["IN"] * unit["scale"]
